@@ -1,0 +1,38 @@
+{
+  "name": "Instagram",
+  "signup_url": "https://www.instagram.com/accounts/emailsignup/",
+  "steps": [
+    {
+      "action": "navigate",
+      "url": "https://www.instagram.com/accounts/emailsignup/"
+    },
+    {
+      "action": "fill",
+      "selector": "input[name='emailOrPhone']",
+      "value": "{email}"
+    },
+    {
+      "action": "fill",
+      "selector": "input[name='fullName']",
+      "value": "{username}"
+    },
+    {
+      "action": "fill",
+      "selector": "input[name='username']",
+      "value": "{username}"
+    },
+    {
+      "action": "fill",
+      "selector": "input[name='password']",
+      "value": "{password}"
+    },
+    {
+      "action": "click",
+      "selector": "button[type='submit']"
+    },
+    {
+      "action": "custom",
+      "method": "handle_birthday_and_otp"
+    }
+  ]
+}

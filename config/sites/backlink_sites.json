@@ -1,0 +1,383 @@
+{
+  "sites": [
+    {
+      "slug": "about-me",
+      "name": "about.me",
+      "website_url": "https://about.me",
+      "signup_url": "https://about.me/signup",
+      "category": "profile"
+    },
+    {
+      "slug": "linktree",
+      "name": "Linktree",
+      "website_url": "https://linktr.ee",
+      "signup_url": "https://linktr.ee/register",
+      "category": "profile"
+    },
+    {
+      "slug": "crunchbase",
+      "name": "Crunchbase",
+      "website_url": "https://www.crunchbase.com",
+      "signup_url": "https://www.crunchbase.com/register",
+      "category": "business-profile"
+    },
+    {
+      "slug": "flickr",
+      "name": "Flickr",
+      "website_url": "https://www.flickr.com",
+      "signup_url": "https://identity.flickr.com/sign-up",
+      "category": "media-profile"
+    },
+    {
+      "slug": "vimeo",
+      "name": "Vimeo",
+      "website_url": "https://vimeo.com",
+      "signup_url": "https://vimeo.com/join",
+      "category": "media-profile"
+    },
+    {
+      "slug": "github",
+      "name": "GitHub",
+      "website_url": "https://github.com",
+      "signup_url": "https://github.com/signup",
+      "category": "developer-profile"
+    },
+    {
+      "slug": "producthunt",
+      "name": "Product Hunt",
+      "website_url": "https://www.producthunt.com",
+      "signup_url": "https://www.producthunt.com",
+      "category": "product-profile"
+    },
+    {
+      "slug": "dev-to",
+      "name": "DEV Community",
+      "website_url": "https://dev.to",
+      "signup_url": "https://dev.to/enter",
+      "category": "developer-profile"
+    },
+    {
+      "slug": "wordpress",
+      "name": "WordPress.com",
+      "website_url": "https://wordpress.com",
+      "signup_url": "https://wordpress.com/start/user",
+      "category": "publishing"
+    },
+    {
+      "slug": "weebly",
+      "name": "Weebly",
+      "website_url": "https://www.weebly.com",
+      "signup_url": "https://www.weebly.com/signup",
+      "category": "publishing"
+    },
+    {
+      "slug": "capterra",
+      "name": "Capterra",
+      "website_url": "https://www.capterra.com",
+      "signup_url": "https://www.capterra.com/vendors/sign-up",
+      "category": "software-directory"
+    },
+    {
+      "slug": "g2",
+      "name": "G2",
+      "website_url": "https://www.g2.com",
+      "signup_url": "https://sell.g2.com/",
+      "category": "software-directory",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "email", "selectors": ["#Email", "input[name='Email']"] },
+            { "key": "business_name", "selectors": ["#Company", "input[name='Company']"] },
+            { "key": "first_name", "selectors": ["#FirstName", "input[name='FirstName']"] },
+            { "key": "last_name", "selectors": ["#LastName", "input[name='LastName']"] },
+            { "key": "job_title", "selectors": ["#Title", "input[name='Title']"] },
+            { "key": "phone", "selectors": ["#Phone", "input[name='Phone']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review G2 seller fields and continue manually if additional fields appear." }
+      ]
+    },
+    {
+      "slug": "kompass-us",
+      "name": "Kompass US",
+      "website_url": "https://us.kompass.com",
+      "signup_url": "https://us.kompass.com/freetrial/easybusiness/",
+      "category": "business-directory",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "email", "selectors": ["#freeEmail"] }
+          ]
+        },
+        { "action": "pause", "message": "Review the Kompass email field and continue manually if appropriate." }
+      ]
+    },
+    {
+      "slug": "complaintsboard",
+      "name": "ComplaintsBoard",
+      "website_url": "https://www.complaintsboard.com",
+      "signup_url": "https://www.complaintsboard.com/contact-us/claim-your-business",
+      "category": "review-profile",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "website", "selectors": ["#claim-web"] },
+            { "key": "business_name", "selectors": ["#claim-company"] },
+            { "key": "owner_name", "selectors": ["#claim-name"] },
+            { "key": "job_title", "selectors": ["#job-title"] },
+            { "key": "email", "selectors": ["#claim-email"] },
+            { "key": "website", "selectors": ["#company-link"] },
+            { "key": "description", "selectors": ["#claim-message"] }
+          ]
+        },
+        { "action": "pause", "message": "Review the ComplaintsBoard claim form, solve any CAPTCHA manually, and submit only if appropriate." }
+      ]
+    },
+    {
+      "slug": "consumeraffairs",
+      "name": "ConsumerAffairs",
+      "website_url": "https://www.consumeraffairs.com",
+      "signup_url": "https://brands.consumeraffairs.com/",
+      "category": "review-profile",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "email", "selectors": ["#email-hero", "#email-cta", "input[name='email']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review ConsumerAffairs brand signup fields and continue manually if appropriate." }
+      ]
+    },
+    {
+      "slug": "trustindex",
+      "name": "Trustindex",
+      "website_url": "https://www.trustindex.io",
+      "signup_url": "https://www.trustindex.io/",
+      "category": "review-profile",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "email", "selectors": ["#floatingInput", "input[name='pre_profile[email]']"] },
+            { "key": "password", "selectors": ["#exampleInputPassword1", "input[name='pre_profile[password]']"] },
+            { "key": "website", "selectors": ["#input-website", "input[name='pre_profile[website]']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review Trustindex signup fields and continue manually if appropriate." }
+      ]
+    },
+    {
+      "slug": "reviews-io",
+      "name": "REVIEWS.io",
+      "website_url": "https://www.reviews.io",
+      "signup_url": "https://www.reviews.io/front/user-login",
+      "category": "review-profile",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 3 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "owner_name", "selectors": ["#input-name", "#inputName"] },
+            { "key": "phone", "selectors": ["#input-phone", "#inputPhone"] },
+            { "key": "email", "selectors": ["#input-email", "#inputEmail"] },
+            { "key": "business_name", "selectors": ["#input-company-name"] },
+            { "key": "website", "selectors": ["#input-url", "#inputURL"] }
+          ]
+        },
+        { "action": "pause", "message": "Review the REVIEWS.io fields and continue manually if this is the correct signup flow." }
+      ]
+    },
+    {
+      "slug": "resellerratings",
+      "name": "ResellerRatings",
+      "website_url": "https://www.resellerratings.com",
+      "signup_url": "https://www.resellerratings.com/merchantsignup",
+      "category": "review-profile",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "first_name", "selectors": ["#firstname"] },
+            { "key": "last_name", "selectors": ["#lastname"] },
+            { "key": "email", "selectors": ["#email"] },
+            { "key": "website", "selectors": ["#website"] },
+            { "key": "username", "selectors": ["#username"] },
+            { "key": "password", "selectors": ["#password"] },
+            { "key": "business_name", "selectors": ["#name"] },
+            { "key": "phone", "selectors": ["#phone"] }
+          ]
+        },
+        { "action": "pause", "message": "Review the ResellerRatings merchant signup form, solve CAPTCHA manually, and submit only if appropriate." }
+      ]
+    },
+    {
+      "slug": "calameo",
+      "name": "Calameo",
+      "website_url": "https://www.calameo.com",
+      "signup_url": "https://www.calameo.com/accounts/signup#register",
+      "category": "publishing",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "username", "selectors": ["input[name='name']"] },
+            { "key": "email", "selectors": ["input[name='email']"] },
+            { "key": "password", "selectors": ["input[name='password']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review Calameo registration fields, handle CAPTCHA/terms manually, and continue." }
+      ]
+    },
+    {
+      "slug": "publuu",
+      "name": "Publuu",
+      "website_url": "https://publuu.com",
+      "signup_url": "https://publuu.com/register/",
+      "category": "publishing"
+    },
+    {
+      "slug": "fliphtml5",
+      "name": "FlipHTML5",
+      "website_url": "https://fliphtml5.com",
+      "signup_url": "https://fliphtml5.com/login.php",
+      "category": "publishing"
+    },
+    {
+      "slug": "pubhtml5",
+      "name": "PUBHTML5",
+      "website_url": "https://pubhtml5.com",
+      "signup_url": "https://pubhtml5.com/login.php",
+      "category": "publishing"
+    },
+    {
+      "slug": "uberall-directories",
+      "name": "Uberall Directories",
+      "website_url": "https://uberall.com/en-us/directories",
+      "signup_url": "https://uberall.com/en-us/directories",
+      "category": "directory-list"
+    },
+    {
+      "slug": "mobiledetailing-io",
+      "name": "MobileDetailing.io",
+      "website_url": "https://www.mobiledetailing.io/listing/steel-city-auto-spa",
+      "signup_url": "https://www.mobiledetailing.io",
+      "category": "detailing-directory"
+    },
+    {
+      "slug": "tintingsource",
+      "name": "Tinting Source",
+      "website_url": "https://www.tintingsource.com",
+      "signup_url": "https://www.tintingsource.com/claim-listing",
+      "category": "automotive-directory",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "first_name", "selectors": ["input[name='firstName']"] },
+            { "key": "last_name", "selectors": ["input[name='lastName']"] },
+            { "key": "business_name", "selectors": ["input[name='businessName']"] },
+            { "key": "email", "selectors": ["input[name='email']"] },
+            { "key": "phone", "selectors": ["input[name='phone']"] },
+            { "key": "city", "selectors": ["input[name='city']"] },
+            { "key": "description", "selectors": ["textarea[name='message']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review TintingSource claim fields, select state manually if needed, and submit only if appropriate." }
+      ]
+    },
+    {
+      "slug": "detailerdirectory",
+      "name": "Detailer Directory",
+      "website_url": "https://www.detailerdirectory.com",
+      "signup_url": "https://www.detailerdirectory.com/checkout/3",
+      "category": "detailing-directory",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "business_name", "selectors": ["input[name='company_name']"] },
+            { "key": "email", "selectors": ["input[name='email']"] },
+            { "key": "email", "selectors": ["input[name='email_confirm']"] },
+            { "key": "phone", "selectors": ["input[name='contact_number_priv']"] },
+            { "key": "website", "selectors": ["input[name='Website_url']"] },
+            { "key": "password", "selectors": ["input[name='password']"] },
+            { "key": "password", "selectors": ["input[name='password_confirm']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review Detailer Directory checkout fields, handle permissions/consent manually, and submit only if appropriate." }
+      ]
+    },
+    {
+      "slug": "detaildirect",
+      "name": "Detail Direct",
+      "website_url": "https://www.detaildirect.io",
+      "signup_url": "https://www.detaildirect.io/checkout/1",
+      "category": "detailing-directory",
+      "steps": [
+        { "action": "navigate", "url": "{signup_url}" },
+        { "action": "sleep", "seconds": 2 },
+        {
+          "action": "autofill_common",
+          "fields": [
+            { "key": "email", "selectors": ["input[name='email']"] },
+            { "key": "email", "selectors": ["input[name='email_confirm']"] },
+            { "key": "password", "selectors": ["input[name='password']"] },
+            { "key": "password", "selectors": ["input[name='password_confirm']"] }
+          ]
+        },
+        { "action": "pause", "message": "Review Detail Direct checkout fields, then continue manually." }
+      ]
+    },
+    {
+      "slug": "the-ida",
+      "name": "International Detailing Association",
+      "website_url": "https://the-ida.com",
+      "signup_url": "https://the-ida.com",
+      "category": "association"
+    },
+    {
+      "slug": "detailpilot",
+      "name": "DetailPilot",
+      "website_url": "https://detailpilot.com",
+      "signup_url": "https://detailpilot.com/signup",
+      "category": "detailing-directory"
+    },
+    {
+      "slug": "detailersdirectory-org",
+      "name": "Detailers Directory",
+      "website_url": "https://detailersdirectory.org",
+      "signup_url": "https://detailersdirectory.org",
+      "category": "detailing-directory"
+    },
+    {
+      "slug": "cardetailerdirectory",
+      "name": "Car Detailer Directory",
+      "website_url": "https://cardetailerdirectory.com",
+      "signup_url": "https://cardetailerdirectory.com",
+      "category": "detailing-directory"
+    }
+  ]
+}

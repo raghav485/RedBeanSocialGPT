@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.qwen/
+scratch/
+
+venv/
+.venv/
+
+accounts.csv
+submissions.csv
+autofill_audit*.csv

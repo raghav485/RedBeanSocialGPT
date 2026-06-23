@@ -1,80 +1,148 @@
-# RedBeanSoupSocialGPT
+# RedBeanSocialGPT
 
-This project automates the creation of accounts on Instagram, Reddit, and TikTok using Selenium. It also handles proxy rotation for account creation.
+Playwright-based browser automation framework with CLI and optional Tk GUI entry points.
 
 ## Requirements
 
-Make sure you have the following requirements installed:
+- Python 3.10+
+- Playwright browsers
+- Tk support in your Python installation, only if you want to use `main_gui.py`
 
-- Python 3.x
-- Chromedriver (for Selenium automation)
-
-You can install the Python dependencies using `pip`:
+Install Python dependencies:
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+playwright install chromium
 ```
 
-Getting Started
-Follow these steps to set up and run the project:
+## Safe Smoke Test
 
-1. Clone the repository:
+Use this first. It launches a real Chromium browser and loads a neutral webpage without creating accounts:
 
 ```bash
-git clone https://github.com/<username>/<project_name>.git
-cd <project_name>
+venv/bin/python main.py --smoke-test
 ```
-2. Create a virtual environment (optional but recommended):
+
+You can point the smoke test at another URL:
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+venv/bin/python main.py --smoke-test --smoke-url https://example.com
 ```
 
-3. Install the project dependencies:
+## List Available Sites
+
+The app loads Python-backed sites and JSON-backed site configs from `config/sites/`.
 
 ```bash
-pip install -r requirements.txt
+venv/bin/python main.py --list-sites
 ```
-4. Download and install Chromedriver:
 
-Download the Chromedriver executable suitable for your system from the official website https://sites.google.com/chromium.org/driver/.
-Place the Chromedriver executable in your system's PATH or specify its path in the relevant script.
+## CLI Usage
 
-5. Prepare your account and proxy data:
-
-Create a text file named accounts.txt containing the account data in the following format: username,password,email (one account per line).
-If you want to use proxies, create a text file named proxy.txt containing the list of proxy addresses (one proxy per line). If not, you can omit this file.
-
-6. Run the project:
-
-Execute the interaction.py script to start the account creation process:
 ```bash
-python interaction.py
+venv/bin/python main.py --site about-me --num 1
+venv/bin/python main.py --site github --num 1
+venv/bin/python main.py --site detailerdirectory --num 1
 ```
-7. Monitor the output:
-The script will create accounts on Instagram, Reddit, and TikTok (based on your settings) and provide feedback on the account creation process.
 
-8. Check the results:
-Account credentials (email, username, password) will be saved to a file named accounts.csv upon successful account creation.
+Run a campaign across several sites:
 
-- Configuration
+```bash
+venv/bin/python main.py --sites about-me,github,detailerdirectory --num 1
+```
 
-You can modify the settings and customize the account creation logic in the following files:
+Run every configured site:
 
-create_accounts.py: Contains account creation and proxy handling functions for Instagram, Reddit, and TikTok.
-main_gui.py: Contains the GUI interface for specifying the number of accounts to generate.
+```bash
+venv/bin/python main.py --sites all --num 1
+```
 
-- Troubleshooting
-If you encounter any issues, refer to the error messages provided by the script for debugging.
+Run a non-submitting autofill audit across the configured backlink sites:
 
-Ensure that Chromedriver is correctly installed and accessible in your system's PATH.
+```bash
+venv/bin/python main.py --sites all --autofill-audit --audit-csv autofill_audit.csv
+```
 
-- Acknowledgments
-Selenium - Web automation framework used for account creation.
-Webdriver Manager - Used for Chromedriver management.
-vbnet
-Copy code
+The audit opens each JSON-backed site, attempts autofill, records page status and filled field count, then closes the browser without submitting forms.
 
+Optional flags:
 
-This is Still not finished feel free to contribute and let us stay better than Chat GPT!
+```bash
+--headless
+--use-accounts-file
+--profile config/business_profile.json
+--site-config-dir config/sites
+--status-csv submissions.csv
+```
+
+When `--use-accounts-file` is provided, `accounts.txt` should contain one account per line:
+
+```text
+username,password,email
+```
+
+Proxy entries can be placed in `proxy.txt`, one per line. Supported formats include:
+
+```text
+host:port
+host:port:user:password
+http://user:password@host:port
+```
+
+Business/listing details for generic backlink sites live in:
+
+```bash
+config/business_profile.json
+```
+
+Generic site workflows open the real signup/join page, attempt to autofill common account/listing fields, then pause for review and manual completion. They do not bypass CAPTCHA, email verification, paid review, or approval checks.
+
+The autofill layer looks for common labels, placeholders, names, and IDs for fields such as:
+
+```text
+email, username, password, business_name, owner_name, first_name, last_name,
+website, phone, address, city, state, postal_code, category, description
+```
+
+Campaign results are appended to `submissions.csv` by default. When you mark a manual-assisted site as complete, the app asks for the profile/listing URL and notes, then records them.
+
+## GUI Usage
+
+```bash
+venv/bin/python main_gui.py
+```
+
+If you see an error about `_tkinter`, your Python installation does not include Tk support. The CLI still works; install a Python build with Tk support to use the GUI.
+
+## Configuration
+
+- `config/default_settings.json`: shared runtime settings
+- `config/business_profile.json`: reusable business/listing data
+- `config/sites/backlink_sites.json`: starter backlink website catalog
+- `config/reddit.json`: Reddit workflow selectors
+- `config/instagram.json`: Instagram workflow selectors
+- `config/tiktok.json`: TikTok workflow selectors
+- `src/engine.py`: Playwright browser wrapper
+- `src/sites/`: site-specific workflow logic
+
+## Add Another Website
+
+Add a JSON object to a file in `config/sites/`:
+
+```json
+{
+  "slug": "example-directory",
+  "name": "Example Directory",
+  "website_url": "https://example-directory.com",
+  "signup_url": "https://example-directory.com/join",
+  "category": "business-directory"
+}
+```
+
+For simple manual-assisted flows, no Python code is needed. If a site has stable selectors and allows automation, add a `steps` array using actions such as `navigate`, `fill`, `click`, `wait`, `sleep`, `print`, and `pause`.
+
+## Notes
+
+Third-party websites frequently change selectors, CAPTCHA flows, and anti-abuse checks. Use this project only where you have permission and where your use complies with the target service's rules.

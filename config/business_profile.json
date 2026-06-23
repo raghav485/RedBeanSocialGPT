@@ -1,0 +1,17 @@
+{
+  "business_name": "Your Business Name",
+  "owner_name": "Your Name",
+  "first_name": "Your",
+  "last_name": "Name",
+  "job_title": "Owner",
+  "website": "https://example.com",
+  "phone": "+1 555 555 5555",
+  "address": "123 Main Street",
+  "city": "Pittsburgh",
+  "state": "PA",
+  "postal_code": "15222",
+  "country": "United States",
+  "category": "Auto Detailing",
+  "description": "Replace this with the approved business description you want to use for directory profiles.",
+  "logo_path": ""
+}

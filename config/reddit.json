@@ -1,0 +1,23 @@
+{
+  "name": "Reddit",
+  "signup_url": "https://www.reddit.com/register",
+  "steps": [
+    {
+      "action": "navigate",
+      "url": "https://www.reddit.com/register"
+    },
+    {
+      "action": "fill",
+      "selector": "input[name='email']",
+      "value": "{email}"
+    },
+    {
+      "action": "click",
+      "selector": "button.continue"
+    },
+    {
+      "action": "custom",
+      "method": "handle_username_password"
+    }
+  ]
+}

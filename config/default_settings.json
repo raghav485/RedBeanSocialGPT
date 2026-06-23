@@ -1,0 +1,8 @@
+{
+  "headless": false,
+  "default_timeout_ms": 30000,
+  "capmonster_key": "",
+  "use_free_mail": true,
+  "output_csv": "accounts.csv",
+  "user_agent": null
+}

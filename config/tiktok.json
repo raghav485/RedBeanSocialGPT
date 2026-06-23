@@ -1,0 +1,14 @@
+{
+  "name": "TikTok",
+  "signup_url": "https://www.tiktok.com/signup",
+  "steps": [
+    {
+      "action": "navigate",
+      "url": "https://www.tiktok.com/signup"
+    },
+    {
+      "action": "custom",
+      "method": "handle_tiktok_flow"
+    }
+  ]
+}
